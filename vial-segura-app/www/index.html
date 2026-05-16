@@ -383,6 +383,11 @@ function initGoogleAuth() {
   if (window.Capacitor && window.Capacitor.isNativePlatform()) {
     // Es Android/iOS
     document.getElementById('native-google-btn').style.display = 'block';
+    window.Capacitor.Plugins.GoogleAuth.initialize({
+      clientId: '478950048529-g6kmun97hdncp4k3pmriej6n5tn99u4u.apps.googleusercontent.com',
+      scopes: ['profile', 'email'],
+      grantOfflineAccess: true,
+    });
   } else {
     // Es Web
     const script = document.createElement('script');
