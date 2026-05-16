@@ -121,11 +121,13 @@
         <div style="font-size:16px;font-weight:500;margin-bottom:6px">Ingreso a Vía Segura</div>
         <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:20px">Debes iniciar sesión para poder crear reportes.</div>
         
-        <input type="email" class="form-input" placeholder="Correo electrónico" style="margin-bottom:10px" value="ciudadano@usco.edu.co">
-        <input type="password" class="form-input" placeholder="Contraseña" style="margin-bottom:20px" value="123456">
-        
-        <button class="submit-btn" onclick="doLogin()">Iniciar Sesión</button>
-        <button onclick="goScreen('dashboard')" style="background:transparent;border:none;color:var(--color-text-secondary);margin-top:15px;font-size:12px;cursor:pointer;width:100%;padding:10px">Volver al Dashboard (Público)</button>
+        <!-- Contenedor para el botón web de Google -->
+        <div id="google-btn-container" style="display:flex;justify-content:center;margin-bottom:10px"></div>
+        <!-- Botón para login nativo en Android (se mostrará por JS) -->
+        <button id="native-google-btn" class="submit-btn" style="display:none;background:#fff;color:#757575;border:1px solid #ddd;font-weight:bold" onclick="doNativeLogin()">
+          <i class="ti ti-brand-google" style="font-size:18px;vertical-align:middle;margin-right:8px;color:#EA4335" aria-hidden="true"></i>
+          Iniciar sesión con Google
+        </button>
       </div>
     </div>
   </div>
@@ -363,7 +365,8 @@ hours.forEach((h,i)=>{
 });
 
 function goScreen(id){
-  if(id === 'reporte' && !localStorage.getItem('currentUser')) {
+  // Login obligatorio
+  if(!localStorage.getItem('currentUser') && id !== 'login') {
     id = 'login';
   }
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -375,10 +378,52 @@ function goScreen(id){
   if(sw){sw.style.background='#1a1a2e';sw.style.color='#fff';}
 }
 
-function doLogin() {
-  localStorage.setItem('currentUser', 'ciudadano@usco.edu.co');
+// Inicialización de Google Auth
+function initGoogleAuth() {
+  if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+    // Es Android/iOS
+    document.getElementById('native-google-btn').style.display = 'block';
+    window.Capacitor.Plugins.GoogleAuth.initialize({
+      clientId: '478950048529-g6kmun97hdncp4k3pmriej6n5tn99u4u.apps.googleusercontent.com',
+      scopes: ['profile', 'email'],
+      grantOfflineAccess: true,
+    });
+  } else {
+    // Es Web
+    const script = document.createElement('script');
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.onload = () => {
+      google.accounts.id.initialize({
+        client_id: "478950048529-g6kmun97hdncp4k3pmriej6n5tn99u4u.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("google-btn-container"),
+        { theme: "outline", size: "large", width: 280 }
+      );
+    };
+    document.head.appendChild(script);
+  }
+}
+
+function handleCredentialResponse(response) {
+  const payload = JSON.parse(atob(response.credential.split('.')[1]));
+  localStorage.setItem('currentUser', payload.email);
   updateUserStatus();
   goScreen('dashboard');
+}
+
+async function doNativeLogin() {
+  try {
+    const user = await window.Capacitor.Plugins.GoogleAuth.signIn();
+    localStorage.setItem('currentUser', user.email);
+    updateUserStatus();
+    goScreen('dashboard');
+  } catch (error) {
+    console.error(error);
+    alert("Error: " + JSON.stringify(error));
+  }
 }
 
 function doLogout() {
@@ -474,6 +519,12 @@ async function submitReport() {
 // Inicializar estado y reportes al cargar
 updateUserStatus();
 renderReports();
+initGoogleAuth();
+
+// Forzar pantalla de login si no hay sesión
+if(!localStorage.getItem('currentUser')) {
+  goScreen('login');
+}
 
 function selType(el){
   document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('sel'));

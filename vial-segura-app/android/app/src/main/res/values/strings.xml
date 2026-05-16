@@ -4,4 +4,5 @@
     <string name="title_activity_main">Vía Segura</string>
     <string name="package_name">com.usco.vialsegura</string>
     <string name="custom_url_scheme">com.usco.vialsegura</string>
+    <string name="server_client_id">478950048529-g6kmun97hdncp4k3pmriej6n5tn99u4u.apps.googleusercontent.com</string>
 </resources>
