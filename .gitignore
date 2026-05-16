@@ -1,0 +1,6 @@
+node_modules/
+vial-segura-app/node_modules/
+.env
+.DS_Store
+dist/
+build/
