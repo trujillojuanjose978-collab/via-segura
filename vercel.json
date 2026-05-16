@@ -4,12 +4,20 @@
     {
       "src": "f.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "vial-segura-app/www/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "f.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/vial-segura-app/www/$1"
     }
   ]
 }
