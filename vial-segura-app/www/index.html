@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Vía Segura USCO</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
@@ -95,7 +95,7 @@
 .chip.act{background:#1a1a2e;color:#fff;border-color:#1a1a2e}
 </style>
 
-<h2 class="sr-only">Mockup interactivo de la app VÃ­a Segura USCO con tres pantallas: dashboard, reporte y simulador</h2>
+<h2 class="sr-only">Mockup interactivo de la app Vía Segura USCO con tres pantallas: dashboard, reporte y simulador</h2>
 
 <div style="background:var(--color-background-secondary);height:100vh;display:flex;flex-direction:column">
 
@@ -167,7 +167,7 @@
           <div class="heat-dot" style="width:80px;height:80px;background:#E24B4A;left:55px;top:25px;filter:blur(18px)"></div>
           <div class="heat-dot" style="width:50px;height:50px;background:#BA7517;left:200px;top:35px;filter:blur(14px)"></div>
           <div class="heat-dot" style="width:35px;height:35px;background:#EF9F27;left:155px;top:55px;filter:blur(10px)"></div>
-          <div style="position:absolute;top:55px;left:65px;font-size:9px;color:#791F1F;font-weight:500">â— Punto crÃ­tico</div>
+          <div style="position:absolute;top:55px;left:65px;font-size:9px;color:#791F1F;font-weight:500">● Punto crítico</div>
           <div style="position:absolute;top:34px;left:108px;font-size:9px;color:#444;background:rgba(255,255,255,0.85);padding:1px 5px;border-radius:4px">USCO</div>
           <div class="map-label">Av. Pastrana â€” Calle 26, Neiva</div>
         </div>
@@ -181,7 +181,7 @@
         <div class="card-title">Horario pico de infracciones</div>
         <div class="hour-bar-row" id="hbars"></div>
         <div class="hour-labels" id="hlbls"></div>
-        <div style="font-size:11px;color:var(--color-text-secondary)">Pico mÃ¡ximo: <b style="color:var(--color-text-primary)">11â€“12 h</b> y <b style="color:var(--color-text-primary)">17â€“18 h</b></div>
+        <div style="font-size:11px;color:var(--color-text-secondary)">Pico máximo: <b style="color:var(--color-text-primary)">11â€“12 h</b> y <b style="color:var(--color-text-primary)">17â€“18 h</b></div>
       </div>
 
       <div class="card">
@@ -210,17 +210,17 @@
     </div>
     <div class="content">
       <div class="card">
-        <div class="section-head">Â¿QuÃ© tipo de incidente?</div>
+        <div class="section-head">¿Qué tipo de incidente?</div>
         <div class="type-grid">
           <button class="type-btn sel" onclick="selType(this)"><i class="ti ti-motorbike" aria-hidden="true"></i><br>Cruce ilegal separador</button>
           <button class="type-btn" onclick="selType(this)"><i class="ti ti-car-crash" aria-hidden="true"></i><br>Casi-accidente</button>
-          <button class="type-btn" onclick="selType(this)"><i class="ti ti-walk" aria-hidden="true"></i><br>PeatÃ³n en riesgo</button>
+          <button class="type-btn" onclick="selType(this)"><i class="ti ti-walk" aria-hidden="true"></i><br>Peatón en riesgo</button>
           <button class="type-btn" onclick="selType(this)"><i class="ti ti-camera" aria-hidden="true"></i><br>Otro / foto</button>
         </div>
       </div>
 
       <div class="card">
-        <div class="section-head">VehÃ­culo involucrado</div>
+        <div class="section-head">Vehículo involucrado</div>
         <div class="chip-row">
           <span class="chip act" onclick="selChip(this,'veh')">Moto</span>
           <span class="chip" onclick="selChip(this,'veh')">Carro</span>
@@ -237,13 +237,13 @@
       </div>
 
       <div class="card">
-        <div class="section-head">UbicaciÃ³n</div>
+        <div class="section-head">Ubicación</div>
         <div class="map-placeholder" style="height:110px">
           <div class="map-road-h" style="top:50px;left:0;right:0"></div>
           <div class="map-road-v" style="left:130px;top:0;bottom:0"></div>
           <div style="position:absolute;top:30px;left:140px;font-size:9px;color:#444;background:rgba(255,255,255,0.9);padding:2px 6px;border-radius:4px">USCO</div>
           <div style="position:absolute;top:38px;left:98px;width:14px;height:14px;background:#E24B4A;border-radius:50%;border:2px solid #fff"></div>
-          <div class="map-label">Tu ubicaciÃ³n detectada automÃ¡ticamente</div>
+          <div class="map-label">Tu ubicación detectada automáticamente</div>
         </div>
         <div style="font-size:11px;color:var(--color-text-secondary);margin-top:6px;display:flex;align-items:center;gap:4px">
           <i class="ti ti-map-pin" style="color:#185FA5" aria-hidden="true"></i>
@@ -252,8 +252,8 @@
       </div>
 
       <div class="card">
-        <label class="form-label">DescripciÃ³n breve (opcional)</label>
-        <textarea class="form-input" rows="2" placeholder="Ej: Moto cruzÃ³ el tope a alta velocidad..."></textarea>
+        <label class="form-label">Descripción breve (opcional)</label>
+        <textarea class="form-input" rows="2" placeholder="Ej: Moto cruzó el tope a alta velocidad..."></textarea>
         <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
           <button style="flex:1;padding:8px;border-radius:8px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);font-size:12px;cursor:pointer;color:var(--color-text-secondary)">
             <i class="ti ti-camera" aria-hidden="true"></i> Adjuntar foto
@@ -289,7 +289,7 @@
           <input type="range" min="10" max="80" value="45" step="1" id="vel-slider" style="flex:1" oninput="updateSim()">
           <span style="font-size:16px;font-weight:500;min-width:52px;text-align:right" id="vel-val">45 km/h</span>
         </div>
-        <div style="font-size:11px;color:var(--color-text-secondary)">Velocidad mÃ¡xima permitida en zona: <b>30 km/h</b></div>
+        <div style="font-size:11px;color:var(--color-text-secondary)">Velocidad máxima permitida en zona: <b>30 km/h</b></div>
       </div>
 
       <div class="route-compare">
@@ -300,24 +300,24 @@
         </div>
         <div class="route-card safe">
           <div class="route-title" style="color:#27500A"><i class="ti ti-check" aria-hidden="true"></i> Ruta legal</div>
-          <div class="route-val" style="font-size:14px;color:#3B6D11">El TizÃ³n</div>
+          <div class="route-val" style="font-size:14px;color:#3B6D11">El Tizón</div>
           <div class="route-sub">+2 min 10 s</div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title">Nivel de riesgo de colisiÃ³n frontal</div>
+        <div class="card-title">Nivel de riesgo de colisión frontal</div>
         <div class="sim-row"><span class="sim-label">Probabilidad de incidente</span><span class="sim-val" id="sim-prob">68%</span></div>
         <div class="risk-bar-wrap"><div class="risk-bar" id="sim-bar" style="width:68%;background:#E24B4A"></div></div>
         <div class="sim-row" style="margin-top:8px"><span class="sim-label">Distancia de frenado</span><span class="sim-val" id="sim-dist">18 m</span></div>
-        <div class="sim-row"><span class="sim-label">Tiempo de reacciÃ³n disponible</span><span class="sim-val" id="sim-reac">0.4 s</span></div>
+        <div class="sim-row"><span class="sim-label">Tiempo de reacción disponible</span><span class="sim-val" id="sim-reac">0.4 s</span></div>
         <div style="margin-top:8px;padding:8px 10px;border-radius:8px;background:#FCEBEB;border:0.5px solid #F09595">
-          <div style="font-size:11px;color:#791F1F;font-weight:500" id="sim-msg">âš  Riesgo alto: tiempo de reacciÃ³n insuficiente para evitar colisiÃ³n</div>
+          <div style="font-size:11px;color:#791F1F;font-weight:500" id="sim-msg">âš  Riesgo alto: tiempo de reacción insuficiente para evitar colisión</div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title">Â¿Vale la pena el riesgo?</div>
+        <div class="card-title">¿Vale la pena el riesgo?</div>
         <div style="display:flex;align-items:center;gap:10px;padding:8px 0">
           <div style="flex:1;text-align:center">
             <div style="font-size:22px;font-weight:500;color:#E24B4A" id="sim-costo">$4.200.000</div>
@@ -331,8 +331,8 @@
         </div>
       </div>
 
-      <button class="submit-btn" onclick="sendPrompt('Â¿CÃ³mo puedo mejorar el modelo de cÃ¡lculo de riesgo del simulador con datos reales de accidentalidad en Neiva? â†—')">
-        Ver metodologÃ­a del cÃ¡lculo â†—
+      <button class="submit-btn" onclick="sendPrompt('¿Cómo puedo mejorar el modelo de cálculo de riesgo del simulador con datos reales de accidentalidad en Neiva? ↗')">
+        Ver metodología del cálculo ↗
       </button>
     </div>
     <div class="nav-tab">
@@ -500,7 +500,7 @@ function updateSim(){
   document.getElementById('sim-dist').textContent=dist+' m';
   document.getElementById('sim-reac').textContent=reac+' s';
   document.getElementById('sim-time-ilegal').textContent=saved+' s';
-  const msg=prob>70?'âš  Riesgo alto: tiempo de reacciÃ³n insuficiente para evitar colisiÃ³n':
+  const msg=prob>70?'âš  Riesgo alto: tiempo de reacción insuficiente para evitar colisión':
              prob>45?'âš  Riesgo medio: maniobra imprudente en zona escolar':'Riesgo bajo a esta velocidad';
   document.getElementById('sim-msg').textContent=msg;
   document.getElementById('sim-msg').parentElement.style.background=prob>70?'#FCEBEB':prob>45?'#FAEEDA':'#EAF3DE';
