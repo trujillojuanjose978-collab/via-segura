@@ -7,6 +7,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Ruta principal para verificar que la API funciona
+app.get('/', (req, res) => {
+  res.send('API de Vía Segura en línea y funcionando correctamente.');
+});
+
 // Configuración de la base de datos
 const pool = new Pool({
   connectionString: process.env.database_url,
