@@ -7,6 +7,7 @@ const { Pool } = require('pg');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static('vial-segura-app/www'));
 
 const JWT_SECRET = process.env.JWT_SECRET || 'viasegura_secret_2024';
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
