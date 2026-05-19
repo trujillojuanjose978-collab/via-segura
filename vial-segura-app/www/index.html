@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -108,7 +108,7 @@
 </div>
 
 <div class="phone">
-
+  
   <!-- LOGIN -->
   <div class="screen" id="screen-login">
     <div class="topbar">
@@ -120,7 +120,10 @@
         <i class="ti ti-shield-lock" style="font-size:48px;color:#185FA5;margin-bottom:12px"></i>
         <div style="font-size:16px;font-weight:500;margin-bottom:6px">Ingreso a Vía Segura</div>
         <div style="font-size:11px;color:var(--color-text-secondary);margin-bottom:20px">Debes iniciar sesión para poder crear reportes.</div>
+        
+        <!-- Contenedor para el botón web de Google -->
         <div id="google-btn-container" style="display:flex;justify-content:center;margin-bottom:10px"></div>
+        <!-- Botón para login nativo en Android (se mostrará por JS) -->
         <button id="native-google-btn" class="submit-btn" style="display:none;background:#fff;color:#757575;border:1px solid #ddd;font-weight:bold" onclick="doNativeLogin()">
           <i class="ti ti-brand-google" style="font-size:18px;vertical-align:middle;margin-right:8px;color:#EA4335" aria-hidden="true"></i>
           Iniciar sesión con Google
@@ -134,7 +137,7 @@
     <div class="topbar">
       <i class="ti ti-shield-check" style="font-size:18px;color:#5DCAA5" aria-hidden="true"></i>
       <span class="topbar-title">Panel de movilidad</span>
-      <span class="badge badge-red">⚠ 3 alertas</span>
+      <span class="badge badge-red">âš Â  3 alertas</span>
     </div>
     <div class="content">
       <div class="stat-row">
@@ -157,7 +160,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">Mapa de calor — Av. Pastrana / USCO</div>
+        <div class="card-title">Mapa de calor â€” Av. Pastrana / USCO</div>
         <div class="map-placeholder">
           <div class="map-road-h" style="top:62px;left:0;right:0"></div>
           <div class="map-road-h" style="top:70px;left:0;right:0;background:#d4c8a8;height:3px"></div>
@@ -166,9 +169,9 @@
           <div class="heat-dot" style="width:80px;height:80px;background:#E24B4A;left:55px;top:25px;filter:blur(18px)"></div>
           <div class="heat-dot" style="width:50px;height:50px;background:#BA7517;left:200px;top:35px;filter:blur(14px)"></div>
           <div class="heat-dot" style="width:35px;height:35px;background:#EF9F27;left:155px;top:55px;filter:blur(10px)"></div>
-          <div style="position:absolute;top:55px;left:65px;font-size:9px;color:#791F1F;font-weight:500">● Punto crítico</div>
+          <div style="position:absolute;top:55px;left:65px;font-size:9px;color:#791F1F;font-weight:500">â—Â Punto crítico</div>
           <div style="position:absolute;top:34px;left:108px;font-size:9px;color:#444;background:rgba(255,255,255,0.85);padding:1px 5px;border-radius:4px">USCO</div>
-          <div class="map-label">Av. Pastrana — Calle 26, Neiva</div>
+          <div class="map-label">Av. Pastrana â€” Calle 26, Neiva</div>
         </div>
         <div style="display:flex;gap:8px;margin-top:8px">
           <span style="font-size:10px;color:var(--color-text-secondary);display:flex;align-items:center;gap:3px"><span style="width:10px;height:10px;border-radius:50%;background:#E24B4A;display:inline-block"></span>Alto riesgo</span>
@@ -180,7 +183,7 @@
         <div class="card-title">Horario pico de infracciones</div>
         <div class="hour-bar-row" id="hbars"></div>
         <div class="hour-labels" id="hlbls"></div>
-        <div style="font-size:11px;color:var(--color-text-secondary)">Pico máximo: <b style="color:var(--color-text-primary)">11–12 h</b> y <b style="color:var(--color-text-primary)">17–18 h</b></div>
+        <div style="font-size:11px;color:var(--color-text-secondary)">Pico máximo: <b style="color:var(--color-text-primary)">11â€“12 h</b> y <b style="color:var(--color-text-primary)">17â€“18 h</b></div>
       </div>
 
       <div class="card">
@@ -188,7 +191,9 @@
           <span>Últimos reportes</span>
           <span id="user-status" style="font-size:10px;color:#185FA5;cursor:pointer" onclick="goScreen('login')">Ingresar</span>
         </div>
-        <div id="reports-container"></div>
+        <div id="reports-container">
+          <!-- Reportes generados dinámicamente aquí -->
+        </div>
       </div>
     </div>
     <div class="nav-tab">
@@ -226,9 +231,9 @@
         </div>
         <div class="section-head" style="margin-top:6px">Hora aproximada</div>
         <div class="chip-row">
-          <span class="chip" onclick="selChip(this,'hora')">6–8 h</span>
-          <span class="chip act" onclick="selChip(this,'hora')">11–12 h</span>
-          <span class="chip" onclick="selChip(this,'hora')">17–19 h</span>
+          <span class="chip" onclick="selChip(this,'hora')">6â€“8 h</span>
+          <span class="chip act" onclick="selChip(this,'hora')">11â€“12 h</span>
+          <span class="chip" onclick="selChip(this,'hora')">17â€“19 h</span>
           <span class="chip" onclick="selChip(this,'hora')">Ahora</span>
         </div>
       </div>
@@ -309,7 +314,7 @@
         <div class="sim-row" style="margin-top:8px"><span class="sim-label">Distancia de frenado</span><span class="sim-val" id="sim-dist">18 m</span></div>
         <div class="sim-row"><span class="sim-label">Tiempo de reacción disponible</span><span class="sim-val" id="sim-reac">0.4 s</span></div>
         <div style="margin-top:8px;padding:8px 10px;border-radius:8px;background:#FCEBEB;border:0.5px solid #F09595">
-          <div style="font-size:11px;color:#791F1F;font-weight:500" id="sim-msg">⚠ Riesgo alto: tiempo de reacción insuficiente para evitar colisión</div>
+          <div style="font-size:11px;color:#791F1F;font-weight:500" id="sim-msg">âš Â  Riesgo alto: tiempo de reacción insuficiente para evitar colisión</div>
         </div>
       </div>
 
@@ -328,8 +333,8 @@
         </div>
       </div>
 
-      <button class="submit-btn" onclick="alert('Ver metodologia')">
-        Ver metodología del cálculo ↗
+      <button class="submit-btn" onclick="sendPrompt('¿Cómo puedo mejorar el modelo de cálculo de riesgo del simulador con datos reales de accidentalidad en Neiva? â†—')">
+        Ver metodología del cálculo â†—
       </button>
     </div>
     <div class="nav-tab">
@@ -360,6 +365,7 @@ hours.forEach((h,i)=>{
 });
 
 function goScreen(id){
+  // Login obligatorio
   if(!localStorage.getItem('currentUser') && id !== 'login') {
     id = 'login';
   }
@@ -372,8 +378,10 @@ function goScreen(id){
   if(sw){sw.style.background='#1a1a2e';sw.style.color='#fff';}
 }
 
+// Inicialización de Google Auth
 function initGoogleAuth() {
   if (window.Capacitor && window.Capacitor.isNativePlatform()) {
+    // Es Android/iOS
     document.getElementById('native-google-btn').style.display = 'block';
     window.Capacitor.Plugins.GoogleAuth.initialize({
       clientId: '478950048529-g6kmun97hdncp4k3pmriej6n5tn99u4u.apps.googleusercontent.com',
@@ -381,6 +389,7 @@ function initGoogleAuth() {
       grantOfflineAccess: true,
     });
   } else {
+    // Es Web
     const script = document.createElement('script');
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
@@ -441,14 +450,19 @@ const API_URL = 'https://via-segura-liart.vercel.app/api/reports';
 async function renderReports() {
   const container = document.getElementById('reports-container');
   if(!container) return;
+  
   try {
     const res = await fetch(API_URL);
     if (!res.ok) throw new Error("Error en red");
     const dbReports = await res.json();
+    
+    // Mock reports base por si la base de datos está vacía
     const mockReports = [
       { title: "Peatón en zona de riesgo", sub: "Estudiante USCO · Andén norte", time: "Hace 41 min · <span class='badge badge-green'>Leve</span>", icon: "ti-user", color: "#3B6D11", bg: "#EAF3DE" }
     ];
+
     const allReports = [...dbReports, ...mockReports];
+    
     container.innerHTML = allReports.map(r => `
       <div class="incident-item">
         <div class="inc-icon" style="background:${r.bg}"><i class="ti ${r.icon}" style="color:${r.color};font-size:16px" aria-hidden="true"></i></div>
@@ -460,16 +474,20 @@ async function renderReports() {
       </div>
     `).join('');
   } catch (err) {
-    container.innerHTML = `<div style="padding:10px;font-size:11px;text-align:center;color:#E24B4A;background:#FCEBEB;border-radius:8px">No se pudo conectar a la base de datos.</div>`;
+    console.error("Error al cargar reportes:", err);
+    container.innerHTML = `<div style="padding:10px;font-size:11px;text-align:center;color:#E24B4A;background:#FCEBEB;border-radius:8px">No se pudo conectar a la base de datos. Verifica que el servidor (f.js) esté corriendo.</div>`;
   }
 }
 
 async function submitReport() {
   const typeBtn = document.querySelector('.type-btn.sel');
   const vehBtn = document.querySelector('.chip-row .chip.act[onclick*="veh"]');
+  const horaBtn = document.querySelector('.chip-row .chip.act[onclick*="hora"]');
   const descEl = document.querySelector('textarea');
+  
   const typeText = typeBtn ? typeBtn.innerText.trim() : 'Reporte general';
   const vehText = vehBtn ? vehBtn.innerText.trim() : 'Vehículo';
+  
   const report = {
     title: typeText,
     sub: `${vehText} · Reporte Ciudadano`,
@@ -478,26 +496,32 @@ async function submitReport() {
     color: '#E24B4A',
     bg: '#FCEBEB'
   };
+
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(report)
     });
+    
     if(!res.ok) throw new Error("Error en servidor");
-    alert("Reporte enviado correctamente.");
+    
+    alert("Reporte enviado correctamente a la base de datos.");
     if(descEl) descEl.value = "";
     renderReports();
     goScreen('dashboard');
   } catch (err) {
-    alert("Error conectando con la base de datos.");
+    console.error(err);
+    alert("Error conectando con la base de datos. Verifica que la API esté corriendo.");
   }
 }
 
+// Inicializar estado y reportes al cargar
 updateUserStatus();
 renderReports();
 initGoogleAuth();
 
+// Forzar pantalla de login si no hay sesión
 if(!localStorage.getItem('currentUser')) {
   goScreen('login');
 }
@@ -527,8 +551,8 @@ function updateSim(){
   document.getElementById('sim-dist').textContent=dist+' m';
   document.getElementById('sim-reac').textContent=reac+' s';
   document.getElementById('sim-time-ilegal').textContent=saved+' s';
-  const msg=prob>70?'⚠ Riesgo alto: tiempo de reacción insuficiente para evitar colisión':
-             prob>45?'⚠ Riesgo medio: maniobra imprudente en zona escolar':'Riesgo bajo a esta velocidad';
+  const msg=prob>70?'âš Â  Riesgo alto: tiempo de reacción insuficiente para evitar colisión':
+             prob>45?'âš Â  Riesgo medio: maniobra imprudente en zona escolar':'Riesgo bajo a esta velocidad';
   document.getElementById('sim-msg').textContent=msg;
   document.getElementById('sim-msg').parentElement.style.background=prob>70?'#FCEBEB':prob>45?'#FAEEDA':'#EAF3DE';
   document.getElementById('sim-msg').parentElement.style.borderColor=prob>70?'#F09595':prob>45?'#FAC775':'#C0DD97';
@@ -538,3 +562,4 @@ function updateSim(){
 
 </body>
 </html>
+
